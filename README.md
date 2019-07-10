@@ -1,2 +1,2 @@
-# hangman
-Project -4 || Hangman
+# HANGMAN
+Hangman is a simple word guessing game. This game was based on the traditional pencil and paper game of the same name. As in the original game, your objective is to guess the mystery word by choosing one letter to reveal at a time. If you guess wrong, a body part of the hangman is added to the gallows until, after too many mistakes, the hangman is complete and gets killed. You don’t need another player to enjoy this game unlike the original. Just fire it up and start guessing away.
