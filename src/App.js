@@ -1,26 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
+import userService from './utils/userService';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    user: userService.getUser()
+  }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() })
+  }
+  
+  render() {
+    return (
+      <div>
+        <header>
+          <h1>Hangman</h1>
+          <p>
+            { 
+              this.state.user 
+              ? `Welcome, ${this.state.user.name}`
+              : 'Please Sign Up' 
+            }
+          </p>       
+          
+          { this.state.user
+            ? <ul>
+                <li><Link to="" onClick={this.handleLogout}>Logout</Link></li>
+              </ul>
+            : <ul>
+                <li><Link to="/signup">Sign up</Link></li>
+                <li><Link to="/login">Login</Link></li>
+              </ul>
+          }
+        </header>
+
+
+        <Switch>
+          <Route exact path="/signup" render={({ history }) => 
+            <SignUpPage 
+              history={history} 
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          } />
+
+          <Route exact path="/login" render={({ history }) => 
+            <LoginPage 
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin} 
+            />
+          } />
+        </Switch>
+        <br />
+      </div>
+    );
+  }
 }
 
 export default App;
