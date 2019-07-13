@@ -3,6 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import userService from './utils/userService';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import MainPage from './pages/Mainpage/MainPage';
 import './App.css';
 
 class App extends Component {
@@ -23,7 +24,9 @@ class App extends Component {
     return (
       <div>
         <header>
-          <h1>Hangman</h1>
+         
+          <h1>Sucide Man</h1>
+          
           <p>
             { 
               this.state.user 
@@ -59,6 +62,7 @@ class App extends Component {
             />
           } />
         </Switch>
+        <MainPage/>
         <br />
       </div>
     );

@@ -1,0 +1,24 @@
+.MainPage{
+    background-color: green;
+}
+.Nav{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+}
+.Playarea{
+    display: flex;
+    flex-direction: row;
+
+}
+.Guesszone{
+    background-color: brown;
+
+}
+.Images{
+    background-color: gray;
+}
+.Footer{
+    background-color: purple;
+}
