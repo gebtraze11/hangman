@@ -17,7 +17,6 @@ class MainPage extends Component{
     state = {
         word: null,
         secretWord: null,
-        guessedLetter: [],
         wrongGuess: 0,
     }
    async componentDidMount(){
@@ -29,14 +28,32 @@ class MainPage extends Component{
     let secret = word.split('').map(letter=> '_').join('')
     this.setState({
         word,
-        secret,
-        wordCheck: word
+        secret
     })
    }
 
     handleLetterClick = e =>{
-    while (true){
-        
+        e.target.disabled=true;
+        let value = e.target.innerHTML.toLowerCase()
+        let found = false
+        let secret = this.state.secret.split('')
+    this.state.word.split('').forEach((letter, i)=>{
+        if (letter === value){
+            found = true;
+            secret[i]= value;
+        }
+    })
+                    
+
+    if (!found){
+        this.setState({
+            wrongGuess: this.state.wrongGuess + 1
+
+        })
+    } else {
+        this.setState({
+            secret: secret.join('')
+        })
     }
 }
 
@@ -52,16 +69,17 @@ class MainPage extends Component{
                </div>
                <div className="Playarea">
                 <div className="Guesszone">
-                    <div className="Guess">Actual word
+                    <div className="Guess">Actual word     
+                    {this.state.secret}
                     </div>
-                    <div className="Keyboard">Virtual Keyboard
+                    <div className="Keyboard">Virtual Keyboard     
                         {Alphabet.map(letter=>
                             <button onClick={this.handleLetterClick}>{letter}</button>
                         )}
                     </div>
                 </div>
                     <div className="Images">
-                    <img style={{ height:"300px", width:"300px" }} src='https://i.imgur.com/Lg7gkA5.png' />
+                    <img style={{ height:"300px", width:"300px" }} src={Images[this.state.wrongGuess]} />
                     </div>
                </div>
                 
