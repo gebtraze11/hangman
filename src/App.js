@@ -19,7 +19,12 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() })
   }
-  
+  handleWin =() =>{
+    userService.handleWin()
+  }
+  getWinScore=()=>{
+    return userService.getWinScore
+  }
   render() {
     return (
       <div>
@@ -62,7 +67,11 @@ class App extends Component {
             />
           } />
         </Switch>
-        <MainPage/>
+        <MainPage
+
+        handleWin = {this.handleWin}
+        getWinScore = {userService.getWinScore}
+        />
         <br />
       </div>
     );

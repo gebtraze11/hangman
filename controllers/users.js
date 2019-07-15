@@ -4,7 +4,28 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
-  login
+  login,
+  handleWin,
+  getWinScore
+}
+
+function getWinScore(req, res){
+  User.findById(req.user._id)
+  .then(user=>res.json({wins: user.wins })).catch(err=>{
+    console.log(err)
+  })
+}
+
+function handleWin(req, res){
+  console.log(req.user)
+  User.findById(req.user._id)
+  .then(user =>{
+    user.wins++;
+    user.save();
+    res.send('ok')
+  }).catch(err=>{
+    res.status(400).json(err)
+  });
 }
 
 async function signup(req, res) {

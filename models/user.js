@@ -6,6 +6,10 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: String,
+  wins: {
+    type: Number,
+    default: 0
+  },
   email: {
     type: String,
     required: true,

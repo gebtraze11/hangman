@@ -1,6 +1,6 @@
 const URL = 'https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5BA-Za-z%5D*%24&partOfSpeech=noun&lettersMin=3&lettersMax=8&random=true'
 
-function getWord(){
+function getWord( ){
     return fetch(URL, {
         method: 'GET',
         headers: new Headers ({

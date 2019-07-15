@@ -40,9 +40,33 @@ function login(creds) {
   .then(({ token }) => tokenService.setToken(token));
 }
 
+
+function handleWin(){
+  fetch(BASE_URL, {
+    method: 'PUT',
+    headers: {
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  });
+}
+
+
+function getWinScore(){
+  return fetch(BASE_URL, {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  })
+  .then(res=>res.json())
+  .then(res => res.wins);
+}
+
 export default {
   signup,
   getUser,
   logout,
-  login
+  login,
+  handleWin,
+  getWinScore
 };

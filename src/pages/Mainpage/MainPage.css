@@ -1,5 +1,5 @@
 .MainPage{
-    background-color: green;
+    background-color: lavender;
 }
 .Nav{
     background-color: white;
@@ -13,8 +13,12 @@
 
 }
 .Guesszone{
-    background-color: brown;
+    background-color: lavender;
 
+}
+.Guess{
+    letter-spacing: 10px;
+    font-size: 30px;
 }
 .Images{
     background-color: gray;
