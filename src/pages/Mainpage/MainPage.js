@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './MainPage.css';
 import getWord from '../../fetchWord';
 
-
 const Images = ['/Images/a.png','/Images/b.png','/Images/c.png','/Images/d.png','/Images/e.png','/Images/f.png','/Images/g.png']
 const Alphabet = (()=>{
     let character = [];
@@ -29,6 +28,7 @@ class MainPage extends Component{
     let secret = word.split('').map(letter=> '_').join('')
 
     this.setState({
+        gameOver: null,
         word,
         secret,
         wrongGuess: 0,
@@ -39,13 +39,11 @@ class MainPage extends Component{
                 temp[String.fromCharCode(i)] = false;
             }
             return temp;
-        })()
-        
+        })() 
     })
    }
 
     handleLetterClick = async(e) =>{
-        
         let disabledButtons = this.state.disabledButtons
         let value = e.target.innerHTML.toLowerCase()
         disabledButtons[value] = true;
@@ -63,11 +61,9 @@ class MainPage extends Component{
     })         
     if (!found){
         if (this.state.wrongGuess+1 === 6){
-            this.setState({
-                secret: this.state.word
-            })
-            alert('you lose')
-            this.initializeState()
+           this.setState({
+               gameOver: 'loose'
+           })
         }
         this.setState({
             wrongGuess: this.state.wrongGuess + 1
@@ -78,38 +74,71 @@ class MainPage extends Component{
         })
         setTimeout(()=>{
             if (!this.state.secret.includes('_')){
+                this.setState({
+                    gameOver:'win'
+                })
                 this.props.handleWin();
-
-
             }
         }, 500)
     }
 }
+
+
+    DisplayResult = () =>{
+        if (this.state.gameOver){
+            if(this.state.gameOver === 'win'){
+                return <div>Congratulation!!! You guessed the word.
+                    <br></br>
+               
+                    <button onClick={this.initializeState}>Play Again</button>
+                </div>
+            }else if(this.state.gameOver === 'loose'){
+                return <div>OOPS!!
+                    <br></br>
+                    The word was: <a href={`https://www.vocabulary.com/dictionary/${this.state.word}`} target='_blank'>{this.state.word}</a>.<br/>
+                    {/* <p>Want to know the meaning?? </p><a href={`http://www.just-fucking-google.it?s=${this.state.word}aple&e=finger`} target='_blank'>click here</a> */}
+                    <br/>
+                    <button onClick={this.initializeState}>Play Again</button>
+                </div>
+            }
+        }else return null
+    }
   
     render(){
         return(
             <>
           <div className="MainPage">MainPage
               <div className="Nav">
-                  <div className="Categories">Categories</div>          
-                  <div className="Difficulty">Difficulty</div>          
-                  <div className="MyScore">My Score     
+                  <div className="Categories">Categories:  
+                  <select disabled>
+                    <option >General Words</option>
+                    <option >Movie</option>
+                    <option >Cars</option>
+                  </select>
+                  </div>          
+                  <div className="Difficulty">Difficulty:  
+                  <select disabled>
+                    <option >Easy</option>
+                    <option >Hard</option>
+                  </select>
+                  </div>          
+                  <div className="MyScore">My Score:     
                   {this.state.wins}
                   </div>          
-                  <div className="Highscore">Highscore</div>
                </div>
                <div className="Playarea">
                 <div className="Guesszone">
                     <div className="Guess">   
-                    {this.state.secret}
-                    
+                        {this.state.secret}
                     </div>
                     <div className="Keyboard">
                         {Alphabet.map(letter=>
                             <button disabled={this.state.disabledButtons && this.state.disabledButtons[letter]} onClick={this.handleLetterClick}>{letter}</button>
                         )}
                     </div>
+                        <this.DisplayResult/>
                 </div>
+               
                     <div className="Images">
                     <img style={{ height:"350px", width:"393px" }} src={Images[this.state.wrongGuess]} />
                     </div>

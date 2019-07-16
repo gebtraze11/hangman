@@ -30,7 +30,7 @@ class App extends Component {
       <div>
         <header>
          
-          <h1>Sucide Man</h1>
+          <h1 className="App-header">Sucide Man</h1>
           
           <p>
             { 

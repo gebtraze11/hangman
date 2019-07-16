@@ -50,7 +50,6 @@ function handleWin(){
   });
 }
 
-
 function getWinScore(){
   return fetch(BASE_URL, {
     method: 'GET',

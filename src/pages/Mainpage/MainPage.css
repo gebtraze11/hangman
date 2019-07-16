@@ -1,8 +1,9 @@
 .MainPage{
-    background-color: lavender;
+    /* background-color: lavender; */
+    min-height: 80vh;
 }
 .Nav{
-    background-color: white;
+    /* background-color: white; */
     display: flex;
     flex-direction: row;
     align-content: space-around;
@@ -10,19 +11,24 @@
 .Playarea{
     display: flex;
     flex-direction: row;
+    margin-left: 100px;
 
 }
 .Guesszone{
-    background-color: lavender;
+    /* background-color: lavender; */
 
+}
+.Keyboard{
+    width: 220px;
 }
 .Guess{
     letter-spacing: 10px;
     font-size: 30px;
+    margin-left: -45px;
 }
 .Images{
-    background-color: gray;
+    /* background-color: gray; */
 }
 .Footer{
-    background-color: purple;
+    /* background-color: purple; */
 }
