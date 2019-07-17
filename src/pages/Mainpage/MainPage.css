@@ -33,12 +33,26 @@ b:hover{
 .Keyboard{
     width: 300px;
 }
-.Keyboard>button{
+.Keyboard>button, .Hint>button{
     color: green;
     font-size: 20px;
     margin: 5px;
     border: 2px solid brown;
     border-radius: 5px;
+
+}
+.Hint{
+    font-size: 25px;
+    color: green;
+}
+.Hint>button{
+    color: green;
+    font-size: 20px;
+    margin: 5px;
+    border: 2px solid brown;
+    border-radius: 5px;
+    background-color: lavender;
+    
 }
 .Keyboard>button:hover{
     background-color: gray;

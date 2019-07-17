@@ -163,14 +163,13 @@ class MainPage extends Component{
                             <button disabled={this.state.disabledButtons && this.state.disabledButtons[letter]} onClick={this.handleLetterClick}>{letter}</button>
                         )}
                     </div>
-                    {this.state.word}
-                    <p> <button onClick={this.revealHint} disabled={this.state.hint==='null'}>Hint</button>    {this.state.hint}</p>
+                    {/* {this.state.word} */}
+                    <div className="Hint"><button onClick={this.revealHint} disabled={this.state.hint==='null'}>Hint</button> {this.state.hint}</div>
                 </div><br/>
                 <div className="Result"><this.DisplayResult/></div> 
             </div>
                 
           </div>
-          <div className="Footer">footer</div>
             </>
         )  
     }
