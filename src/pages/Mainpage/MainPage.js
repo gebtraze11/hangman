@@ -102,10 +102,9 @@ class MainPage extends Component{
                     <button onClick={this.initializeState}>Play Again</button>
                 </div>
             }else if(this.state.gameOver === 'loose'){
-                return <div>OOPS!!
-                    <br></br>
+                return <div><span>OOPS!!</span>
+                    <br/><br/>
                     The word was: <a href={`https://www.vocabulary.com/dictionary/${this.state.word}`} target='_blank'>{this.state.word}</a>.<br/>
-                    <p>Want to know the meaning?? </p><a href={`http://www.just-fucking-google.it?s=${this.state.word}aple&e=finger`} target='_blank'>click here</a>
                     <br/>
                     <button onClick={this.initializeState}>Play Again</button>
                 </div>
@@ -139,28 +138,22 @@ class MainPage extends Component{
     render(){
         return(
             <>
+            
+
+
           <div className="MainPage">
-              <div className="Nav">
-                  <div className="Categories">Categories:  
-                  <select disabled>
-                    <option >General Words</option>
-                    <option >Movie</option>
-                    <option >Cars</option>
-                  </select>
-                  </div>          
-                  <div className="Difficulty">Difficulty:  
-                  <select disabled>
-                    <option >Easy</option>
-                    <option >Hard</option>
-                  </select>
-                  </div>          
-                  <div className="MyScore">My Score:   
-                  {this.state.wins}
-                  
-                  </div>     
-                  <div> <a href="/highscore">High Score</a> </div>     
-               </div>
-               <div className="Playarea">
+            <div className="Images">
+                    <img style={{ height:"350px", width:"393px" }} src={Images[this.state.wrongGuess]} />
+            </div>
+
+            <div className="Nav">        
+                  <div className="MyScore"><b>My Score:  
+                  {this.state.wins}                                             
+                  </b></div>     
+                  <div> <a href="/highscore"><b>High Score</b></a> </div>     
+            </div>
+
+            <div className="Playarea">
                 <div className="Guesszone">
                     <div className="Guess">   
                         {this.state.secret ? this.state.secret : <p>Loading...</p>}
@@ -172,13 +165,9 @@ class MainPage extends Component{
                     </div>
                     {this.state.word}
                     <p> <button onClick={this.revealHint} disabled={this.state.hint==='null'}>Hint</button>    {this.state.hint}</p>
-                        <this.DisplayResult/>
-                </div>
-               
-                    <div className="Images">
-                    <img style={{ height:"350px", width:"393px" }} src={Images[this.state.wrongGuess]} />
-                    </div>
-               </div>
+                </div><br/>
+                <div className="Result"><this.DisplayResult/></div> 
+            </div>
                 
           </div>
           <div className="Footer">footer</div>

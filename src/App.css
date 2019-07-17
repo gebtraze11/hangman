@@ -8,3 +8,10 @@
   color: white;
   text-align: center;
 }
+li{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}

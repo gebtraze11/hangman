@@ -45,8 +45,8 @@ class App extends Component {
             ? <ul>
                 <li><Link to="" onClick={this.handleLogout}>Logout</Link></li>
               </ul>
-            : <ul>
-                <li><Link to="/signup">Sign up</Link></li>
+            : <ul >
+                <li style={{font:'400px'}}><Link to="/signup">Sign up</Link></li>
                 <li><Link to="/login">Login</Link></li>
               </ul>
           }
