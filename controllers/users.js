@@ -6,7 +6,15 @@ module.exports = {
   signup,
   login,
   handleWin,
-  getWinScore
+  getWinScore,
+  getHighScores
+}
+
+function getHighScores(req, res){
+  User.find({}).sort('-wins').limit(5).
+  then(users=>{
+    res.json(users)
+  })
 }
 
 function getWinScore(req, res){

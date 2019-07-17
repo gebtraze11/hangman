@@ -4,6 +4,7 @@ import userService from './utils/userService';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import MainPage from './pages/Mainpage/MainPage';
+import HighScore from './pages/HighScore/HighScore';
 import './App.css';
 
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
         <header>
          
           <h1 className="App-header">Sucide Man</h1>
-          
+
           <p>
             { 
               this.state.user 
@@ -66,12 +67,24 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin} 
             />
           } />
+
+          <Route exact path="/" render={()=>
+          <MainPage
+          handleWin = {this.handleWin}
+        getWinScore = {userService.getWinScore}
+          />
+        }/>
+        <Route exact path="/highscore" render={()=>
+       <HighScore/>
+
+      }/>
         </Switch>
+{/*         
         <MainPage
 
         handleWin = {this.handleWin}
         getWinScore = {userService.getWinScore}
-        />
+        /> */}
         <br />
       </div>
     );

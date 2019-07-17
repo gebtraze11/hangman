@@ -2,6 +2,18 @@ import tokenService from './tokenService';
 
 const BASE_URL = '/api/users/';
 
+function getHighScore(){
+  return fetch('/api/highscores', {
+    method: 'GET',
+    headers: new Headers({'Content-Type': 'application/json'}),
+  }).then(res =>{
+   return res.json()
+  }).then(res=>{
+    return res
+  })
+}
+
+
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
@@ -67,5 +79,6 @@ export default {
   logout,
   login,
   handleWin,
-  getWinScore
+  getWinScore,
+  getHighScore
 };
