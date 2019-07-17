@@ -28,7 +28,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="Form">
         <header>
          
           <h1 className="App-header">Sucide Man</h1>
@@ -43,11 +43,12 @@ class App extends Component {
           
           { this.state.user
             ? <ul>
-                <li><Link to="" onClick={this.handleLogout}>Logout</Link></li>
+                <li><Link to="" onClick={this.handleLogout}><button>Logout</button></Link></li>
               </ul>
             : <ul >
-                <li style={{font:'400px'}}><Link to="/signup">Sign up</Link></li>
-                <li><Link to="/login">Login</Link></li>
+                <li style={{font:'400px'}}><Link to="/signup"><button>Sign up</button></Link></li>
+                <li><Link to="/login"><button>Login</button></Link></li>
+                
               </ul>
           }
         </header>

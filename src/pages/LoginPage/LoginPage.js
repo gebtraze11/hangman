@@ -39,7 +39,7 @@ class LoginPage extends Component {
       <div>
         <form action="" onSubmit={this.handleSubmit}>
 
-          <div>Email: 
+          <div>Email:          
             <input
               name="email"
               type="email"
@@ -47,7 +47,7 @@ class LoginPage extends Component {
               value={this.state.email}
             />            
           </div>
-          <div>Password:
+          <div>Password:   
             <input
               name="pw"
               type="password"
@@ -55,6 +55,7 @@ class LoginPage extends Component {
               value={this.state.pw}
             />
           </div>
+          <br/>
           <input type="submit" value="Submit" />
         </form>
         { this.state.message 

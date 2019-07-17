@@ -10,8 +10,19 @@
 }
 li{
   text-decoration: none;
+  list-style: None;
 }
 a{
   text-decoration: none;
   color: inherit;
+}
+.Form{
+  text-align: center;
+}
+button{
+  color: green;
+    font-size: 20px;
+    margin: 5px;
+    border: 2px solid brown;
+    border-radius: 5px;
 }

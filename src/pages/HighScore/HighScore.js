@@ -20,11 +20,13 @@ class HighScore extends Component{
     console.log(this.state.highscore)
 
     return(
+      <><div>HighScore</div>
       <ol>{this.state.highscore.map(e=>
 
-        <li>{e.name}:{e.wins}</li>
+        <li>{e.name}               {e.wins}</li>
         )}
       </ol>
+      </>
     )
   }
 }

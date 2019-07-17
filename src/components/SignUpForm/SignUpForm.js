@@ -41,22 +41,22 @@ class SignupForm extends Component {
         <header className="header-footer">Sign Up</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
-            <div className="col-sm-12">Name: 
+            <div className="col-sm-12">Name:                      
               <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
-            <div className="col-sm-12">Email: 
+            <div className="col-sm-12">Email:                       
               <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
-            <div className="col-sm-12">Password:
+            <div className="col-sm-12">Password:               
               <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
-            <div className="col-sm-12">Confirm Password:
+            <div className="col-sm-12">Confirm Password: 
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             </div>
           </div>
