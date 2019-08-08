@@ -51,7 +51,7 @@ class SignupForm extends Component {
             </div>
           </div>
           <div className="form-group">
-            <div className="col-sm-12">Password:               
+            <div className="col-sm-12">Password:                
               <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
             </div>
           </div>

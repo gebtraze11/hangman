@@ -138,8 +138,6 @@ class MainPage extends Component{
     render(){
         return(
             <>
-            
-
 
           <div className="MainPage">
             <div className="Images">
@@ -156,7 +154,7 @@ class MainPage extends Component{
             <div className="Playarea">
                 <div className="Guesszone">
                     <div className="Guess">   
-                        {this.state.secret ? this.state.secret : <p>Loading...</p>}
+                        {this.state.secret ? this.state.secret : <p>Signup or Login to play</p>}
                     </div>
                     <div className="Keyboard">
                         {Alphabet.map(letter=>
